@@ -1,0 +1,39 @@
+body, html{
+    background-color: #141414;
+    margin: 0;
+}
+
+header {
+
+    display: flex;
+    font-family: helvetica, sans-serif;
+    align-items: center;
+}
+
+header p{
+    margin: 0;
+}
+
+#logo{
+
+}
+
+#nom_logo{
+
+    color: white;
+    /*font-size: 1.1em;*/
+    height: 20px;
+    margin: 0 100px 0 25px;
+}
+
+#menu a{
+    text-decoration: None;
+    color: white;
+    margin-right: 40px;
+
+    /*font-size: 1.1em;*/
+}
+
+#menu a:hover{
+    color: dimgrey;
+}
