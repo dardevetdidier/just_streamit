@@ -60,14 +60,10 @@ header p{
     font-family: helvetica, sans-serif;
     font-size: 1.0em;
     margin-left: 8px;
-    background-color: rgba(77, 77, 77, 0.6);
-    color: #e5e5e5;
+    background-color: white;
+    color: black;
     font-weight: 0;
-}
-
-#search_box label{
-    color: #dedede;
-
+    border-radius: 8px;
 }
 
 #interstellar{
