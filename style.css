@@ -1,24 +1,19 @@
 body, html{
     background-color: #141414;
     margin: 0;
-
-
+    width: 100%;
 }
-#contenu{
-    position: relative;
-    padding-left: 8%;
-    padding-right: 8%;
-}
+
 header {
     margin-top: 0;
     position: fixed;
     display: flex;
+    justify-content: space-between;
     font-family: helvetica, sans-serif;
     align-items: center;
     background-color: rgba(18, 18, 18, 0.6);
     width: 100%;
-    /*height: 8%;*/
-    /*max-height: 80px;*/
+    height: 6vw;
 }
 
 header p{
@@ -26,26 +21,31 @@ header p{
 }
 
 #logo{
-
     display: flex;
     align-items: center;
     padding-left: 8%;
 }
 
-#logo_nom{
+#logo_image img{
+    width: 80%;
+}
 
+#logo_nom{
     color: white;
-    /*font-size: 1.1em;*/
     height: 20px;
     margin: 0 100px 0 15px;
+    font-size: 1.4vw;
+}
+
+#menu{
+    display: flex;
 }
 
 #menu a{
     text-decoration: None;
     color: white;
     margin-right: 40px;
-
-    /*font-size: 1.1em;*/
+    font-size: 1.4vw;
 }
 
 #menu a:hover{
@@ -53,51 +53,104 @@ header p{
 }
 
 #search_box{
-    margin-left: 25%;
+    margin-right: 8%;
 }
+
 #search_box input{
-    border: white;
-    background-color: #141414;
+    font-family: helvetica, sans-serif;
+    font-size: 1.0em;
+    margin-left: 8px;
+    background-color: rgba(77, 77, 77, 0.6);
     color: #e5e5e5;
+    font-weight: 0;
 }
 
 #search_box label{
     color: #dedede;
+
 }
 
-/*#interstellar{*/
-/*    background-image: url("images/interstellar.jpeg");*/
-
-/*}*/
-
-/*#interstellar{*/
-/*    height: 500px;*/
-/*}*/
-
-#interstellar img{
+#interstellar{
+    background-image: url("images/insterstellar_res_default.jpg");
+    background-size: cover;
     width: 100%;
-    height: auto;
+    height: 85vh;
 }
 
-#categorie_1{
+#contenu{
+    position: relative;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+#categorie_1, #categorie_2,  #categorie_3, #categorie_4{
     margin-top: 15px;
 }
-#categorie_1 a{
+
+#contenu a{
     text-decoration: none;
     font-family: helvetica, sans-serif;
-    font-size: 1.3em;
+    font-size: 1.4vw;
     color: #e5e5e5;
-
 }
 
 .films{
     margin-top: 20px;
     display: flex;
     justify-content: flex-start;
-    height: 300px;
+    height: 200px;
 }
+
 .films img{
     height: auto;
     border-radius: 5px;
     margin-right: 6px;
+}
+
+@media all and (max-width: 1024px){
+    #menu{
+        flex-direction: column;
+        text-align: center;
+        margin-left: min(70px, 50px);
+    }
+
+    #menu a{
+        margin-bottom: 4px;
+    }
+    #search_box input{
+        width: 90px;
+        font-size: 0.7em;
+    }
+
+    #logo{
+        flex-direction: column;
+    }
+    #logo_nom{
+        text-align: center;
+        margin: 0;
+    }
+    #logo_image{
+        text-align: center;
+        padding-top: 6%;
+    }
+
+    /*#logo_image{*/
+    /*    display: none;*/
+    /*}*/
+
+    /*#logo_image_mobile{*/
+    /*    width: 8vw;*/
+    /*    height: 8vw;*/
+    /*    background: url("images/just_logo_white_mini_mobile.png") no-repeat center;*/
+    /*    background-size: 8vw;*/
+    /*}*/
+
+    #logo_nom, #categorie_1 a, #menu a{
+        font-size: min(12px, 12px);
+    }
+
+    header{
+        height: min(80px, 80px);
+    }
+
 }
