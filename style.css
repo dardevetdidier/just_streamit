@@ -11,9 +11,9 @@ header {
     justify-content: space-between;
     font-family: helvetica, sans-serif;
     align-items: center;
-    background-color: rgba(18, 18, 18, 0.6);
+    background-color: rgba(18, 18, 18, 0.7);
     width: 100%;
-    height: 6vw;
+    height: 66px;
 }
 
 header p{
@@ -23,29 +23,25 @@ header p{
 #logo{
     display: flex;
     align-items: center;
-    padding-left: 8%;
+    margin-left: 8%;
 }
 
 #logo_image img{
-    width: 80%;
-}
-
-#logo_nom{
-    color: white;
-    height: 20px;
-    margin: 0 100px 0 15px;
-    font-size: 1.4vw;
+    padding-top: 4%;
+    width: 5rem;
 }
 
 #menu{
     display: flex;
+    text-align: center;
+
 }
 
 #menu a{
     text-decoration: None;
     color: white;
-    margin-right: 40px;
-    font-size: 1.4vw;
+    font-size: 1.2rem;
+    margin-left: 3rem;
 }
 
 #menu a:hover{
@@ -58,52 +54,69 @@ header p{
 
 #search_box input{
     font-family: helvetica, sans-serif;
-    font-size: 1.0em;
-    margin-left: 8px;
     background-color: white;
+    font-size: 1rem;
     color: black;
-    font-weight: 0;
     border-radius: 8px;
+    width: 13rem;
+    height: 1.6rem;
 }
 
-#interstellar{
-    background-image: url("images/insterstellar_res_default.jpg");
-    background-size: cover;
+#meilleur_film img{
+    /*background-position: center center;*/
     width: 100%;
-    height: 85vh;
+    height: auto;
+    box-shadow: 0 25px 20px black;
+
+    /*background-position: center left;*/
+    /*background-image: url("images/insterstellar_res_default.jpg");*/
+
+    /*background-size: cover;*/
+    /*width: 100%;*/
+    /*height: 85vh;*/
 }
 
 #contenu{
-    position: relative;
-    padding-left: 8%;
-    padding-right: 8%;
+    margin-top: -12%;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
-#categorie_1, #categorie_2,  #categorie_3, #categorie_4{
-    margin-top: 15px;
+#categorie_2,  #categorie_3, #categorie_4{
+    margin-top: 3vh;
 }
 
 #contenu a{
+    position: relative;
     text-decoration: none;
     font-family: helvetica, sans-serif;
-    font-size: 1.4vw;
+    font-size: 1.3rem;
     color: #e5e5e5;
+    z-index: 1;
+}
+
+#categorie_1 a{
+    color: #141414;
+    font-weight: bold;
 }
 
 .films{
     margin-top: 20px;
     display: flex;
     justify-content: flex-start;
-    height: 200px;
+    width: 100%;
+    height: 23vh;
+
 }
 
 .films img{
-    height: auto;
+    position: relative;
+    width: 100%;
     border-radius: 5px;
     margin-right: 6px;
 }
 
-@media all and (max-width: 1024px){
+@media all and (max-width: 850px){
     #menu{
         flex-direction: column;
         text-align: center;
@@ -111,42 +124,16 @@ header p{
     }
 
     #menu a{
-        margin-bottom: 4px;
+        margin-right: 0;
+        margin-left: 0;
     }
     #search_box input{
-        width: 90px;
-        font-size: 0.7em;
+        width: 8rem;
+        margin-left: 2rem;
     }
 
-    #logo{
-        flex-direction: column;
-    }
-    #logo_nom{
-        text-align: center;
-        margin: 0;
-    }
-    #logo_image{
-        text-align: center;
-        padding-top: 6%;
-    }
-
-    /*#logo_image{*/
-    /*    display: none;*/
+    /*#meilleur_film{*/
+    /*    height: 33vh;*/
     /*}*/
-
-    /*#logo_image_mobile{*/
-    /*    width: 8vw;*/
-    /*    height: 8vw;*/
-    /*    background: url("images/just_logo_white_mini_mobile.png") no-repeat center;*/
-    /*    background-size: 8vw;*/
-    /*}*/
-
-    #logo_nom, #categorie_1 a, #menu a{
-        font-size: min(12px, 12px);
-    }
-
-    header{
-        height: min(80px, 80px);
-    }
-
 }
+
