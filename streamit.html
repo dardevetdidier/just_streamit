@@ -2,87 +2,108 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
         <title>JustStreamIt</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/solid.css" integrity="sha384-LA8Ug4T/nhVkyhrSmSirsoAo9iDrBk8E7U80aSPeD+w3vO8PzOJIS6agGcbIwwX0" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/fontawesome.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="base.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <div id="logo">
-                <div id="logo_image">
-                    <p><img src="images/just_logo_white_text_mini.png" alt="logo JustStreamIt"></p>
-                </div>
-                <div id="logo_image_mobile"></div>
-            
-<!--                <div id="logo_nom">-->
-<!--                    <p>JustStreamIt</p>-->
-<!--                </div>-->
-            </div>
-            
-            <nav id="menu">
-                <a href="#">Accueil</a>
-                <a id="menu_categorie" href="#">Catégories</a>
-            </nav>
-            
-<!-- TODO 1 : Menu déroulant catégories -->
-            
-            <div id="search_box">
-                <form action="#" method="post"></form>
-                    <div>
-                        <label for="search"></label>
-                        <input type="search" id="search" name="Rechercher" placeholder="rechercher">
+            <div class="container">
+                <div id="header_contenu">
+                    <div id="header_logo">
+                        <p><img src="images/logo_white.png" alt="logo JustStreamIt"></p>
                     </div>
+                    
+                    <nav id="header_navbar-menu">
+                        <a class="header_navbar-link" href="#"><i class="fas fa-home"></i> Accueil</a>
+                        <div id="menu_deroulant">
+                            <p id="bouton_cat"  class="header_navbar-link"><i class="fas fa-bars"></i> Catégories</p>
+                            <div id="menu_deroulant_categories">
+                                <a href="#anchor_cat1" class="menu_categorie">Films les mieux notés</a>
+                                <a href="#anchor_cat2" class="menu_categorie">Science_Fiction</a>
+                                <a href="#anchor_cat3" class="menu_categorie">Comédie</a>
+                                <a href="#anchor_cat4" class="menu_categorie">Policiers</a>
+                            </div>
+                        </div>
+                    </nav>
+                    
+                    
+        <!-- TODO 1 : Menu déroulant catégories -->
+                    <div id="search_box">
+                        <i class="fas fa-search"></i>
+                        <form action="#" method="post"></form>
+                            <div>
+                                <label for="search"></label>
+                                <input type="search" id="search" name="Rechercher" placeholder="rechercher"/>
+                            </div>
+                    </div>
+                    <div class="header_navbar_search-toggle">
+                        <span class="header_navbar_search_toggle_icons"></span>
+                    </div>
+                </div>
             </div>
         </header>
-        <div id="shadow"></div>
-            <div id="meilleur_film">
-                <img src="images/insterstellar_res_default.jpg" alt="image film">
-            </div>
         
+        <div id="meilleur_film-color">
+            <div id="meilleur_film-image"></div>
+        </div>
         
-        <div id="contenu">
-            <div id="categorie_1">
-                <a href="#" title="Voir toute la catégorie">Films les mieux notés</a>
-                <div class="films">
-                    <img src="images/chacun_chez_soi.jpg" alt="image film">
-                    <img src="images/oubli.jpg" alt="image film">
-                    <img src="images/villa.jpg" alt="image film">
-                    <img src="images/discours.jpg" alt="image film">
-                    <img src="images/croods.jpg" alt="image film">
+        <div class="container">
+            <div id="contenu">
+                <a id="anchor_cat1" class="anchor"></a>
+                <div id="contenu_categorie_1">
+                    <a class="contenu_categorie-link" href="#" title="Voir toute la catégorie">Films les mieux notés</a>
+                    <div class="films">
+                        <img src="images/chacun_chez_soi.jpg" alt="image film">
+                        <img src="images/oubli.jpg" alt="image film">
+                        <img src="images/villa.jpg" alt="image film">
+                        <img src="images/discours.jpg" alt="image film">
+                        <img src="images/croods.jpg" alt="image film">
+                    </div>
                 </div>
-            </div>
-            
-            <div id="categorie_2">
-                <a href="#" title="Voir toute la catégorie">Sciences-Fiction</a>
-                <div class="films">
-                    <img src="images/chacun_chez_soi.jpg" alt="image film">
-                    <img src="images/oubli.jpg" alt="image film">
-                    <img src="images/villa.jpg" alt="image film">
-                    <img src="images/discours.jpg" alt="image film">
-                    <img src="images/croods.jpg" alt="image film">
+                
+                <a id="anchor_cat2" class="anchor"></a>
+                <div id="contenu_categorie_2">
+                    <a class="contenu_categorie-link" href="#" title="Voir toute la catégorie">Sciences-Fiction</a>
+                    <div class="films">
+                        <img src="images/chacun_chez_soi.jpg" alt="image film">
+                        <img src="images/oubli.jpg" alt="image film">
+                        <img src="images/villa.jpg" alt="image film">
+                        <img src="images/discours.jpg" alt="image film">
+                        <img src="images/croods.jpg" alt="image film">
+                    </div>
                 </div>
-            </div>
-            
-            <div id="categorie_3">
-                <a href="#" title="Voir toute la catégorie">Comédie</a>
-                <div class="films">
-                    <img src="images/chacun_chez_soi.jpg" alt="image film">
-                    <img src="images/oubli.jpg" alt="image film">
-                    <img src="images/villa.jpg" alt="image film">
-                    <img src="images/discours.jpg" alt="image film">
-                    <img src="images/croods.jpg" alt="image film">
+                
+                <a id="anchor_cat3" class="anchor"></a>
+                <div id="contenu_categorie_3">
+                    <a class="contenu_categorie-link" href="#" title="Voir toute la catégorie">Comédie</a>
+                    <div class="films">
+                        <img src="images/chacun_chez_soi.jpg" alt="image film">
+                        <img src="images/oubli.jpg" alt="image film">
+                        <img src="images/villa.jpg" alt="image film">
+                        <img src="images/discours.jpg" alt="image film">
+                        <img src="images/croods.jpg" alt="image film">
+                    </div>
                 </div>
-            </div>
-            
-            <div id="categorie_4">
-                <a href="#" title="Voir toute la catégorie">Policiers</a>
-                <div class="films">
-                    <img src="images/chacun_chez_soi.jpg" alt="image film">
-                    <img src="images/oubli.jpg" alt="image film">
-                    <img src="images/villa.jpg" alt="image film">
-                    <img src="images/discours.jpg" alt="image film">
-                    <img src="images/croods.jpg" alt="image film">
+                
+                <a id="anchor_cat4" class="anchor"></a>
+                <div id="contenu_categorie_4">
+                    <a class="contenu_categorie-link" href="#" title="Voir toute la catégorie">Policiers</a>
+                    <div class="films">
+                        <img src="images/chacun_chez_soi.jpg" alt="image film">
+                        <img src="images/oubli.jpg" alt="image film">
+                        <img src="images/villa.jpg" alt="image film">
+                        <img src="images/discours.jpg" alt="image film">
+                        <img src="images/croods.jpg" alt="image film">
+                    </div>
                 </div>
             </div>
         </div>
+        <script src="js/menu_deroulant.js"></script>
     </body>
 </html>

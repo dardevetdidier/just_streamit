@@ -1,139 +1,169 @@
-body, html{
-    background-color: #141414;
-    margin: 0;
-    width: 100%;
-}
-
 header {
     margin-top: 0;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    font-family: helvetica, sans-serif;
-    align-items: center;
-    background-color: rgba(18, 18, 18, 0.7);
     width: 100%;
-    height: 66px;
+    height: 80px;
+    position: fixed;
+    background-color: rgba(18, 18, 18, 0.7);
+    z-index: 99;
+}
+#header_contenu{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#header_logo img{
+    height: 100%;
+    position: absolute;
+    top: 0;left: 0;
+}
+#header_navbar-menu{
+    display: flex;
+    padding-right: 5vw;
+}
+.header_navbar-link{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-right: 8vw;
+}
+.header_navbar-link:hover {
+    color: #e5e5e5;
 }
 
-header p{
+#bouton_cat{
     margin: 0;
 }
-
-#logo{
-    display: flex;
-    align-items: center;
-    margin-left: 8%;
+#bouton_cat:hover{
+    cursor: pointer;
 }
-
-#logo_image img{
-    padding-top: 4%;
-    width: 5rem;
+#menu_deroulant{
+    position: relative;
 }
-
-#menu{
-    display: flex;
-    text-align: center;
-
+#menu_deroulant_categories{
+    transition: all 0.3s ease-in-out;
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    top: 53px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 0 0 12px 12px;
+    z-index: 100;
 }
-
-#menu a{
-    text-decoration: None;
+.menu_categorie{
+    width: 100%;
+    text-decoration: none;
     color: white;
-    font-size: 1.2rem;
-    margin-left: 3rem;
+    /*text-align: center;*/
+    font-size: 22px;
+    padding-left: 15px;
 }
-
-#menu a:hover{
+.menu_categorie:hover{
+    background: rgba(18, 18, 18, 1);
     color: #dedede;
 }
-
-#search_box{
-    margin-right: 8%;
+.anchor{
+    position: relative;
+    top: -100px;
 }
-
-#search_box input{
-    font-family: helvetica, sans-serif;
+#search_box {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#search_box i{
+    color: white;
+}
+#search_box input {
+    font-family: 'Nunito', sans-serif;
     background-color: white;
     font-size: 1rem;
-    color: black;
     border-radius: 8px;
-    width: 13rem;
-    height: 1.6rem;
+    width: 10rem;
+    height: 1.4rem;
+    border-style: none;
+    margin-left: 5px;
 }
-
-#meilleur_film img{
-    /*background-position: center center;*/
+#meilleur_film-color{
+    background: #141414;
+    width: 100%;
+    height: 20%;
+    box-shadow: 0 0 30px 5px black;
+}
+#meilleur_film-image{
+    width: 100%;
+    height: 53vw;
+    background: url("images/insterstellar_res_default.jpg")center center;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0.6;
+}
+#contenu{
+    margin-top: -15vw;
+    z-index: 2;
     width: 100%;
     height: auto;
-    box-shadow: 0 25px 20px black;
-
-    /*background-position: center left;*/
-    /*background-image: url("images/insterstellar_res_default.jpg");*/
-
-    /*background-size: cover;*/
-    /*width: 100%;*/
-    /*height: 85vh;*/
 }
-
-#contenu{
-    margin-top: -12%;
-    margin-left: 8%;
-    margin-right: 8%;
-}
-
-#categorie_2,  #categorie_3, #categorie_4{
+#contenu_categorie_1, #contenu_categorie_2,  #contenu_categorie_3, #contenu_categorie_4 {
     margin-top: 3vh;
 }
-
-#contenu a{
+.contenu_categorie-link{
     position: relative;
     text-decoration: none;
-    font-family: helvetica, sans-serif;
-    font-size: 1.3rem;
-    color: #e5e5e5;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
     z-index: 1;
 }
-
-#categorie_1 a{
-    color: #141414;
-    font-weight: bold;
+.contenu_categorie-link:hover{
+    color: #dedede;
 }
-
-.films{
+.films {
     margin-top: 20px;
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    height: 23vh;
-
+    height: auto;
 }
-
-.films img{
+.films img {
     position: relative;
     width: 100%;
     border-radius: 5px;
-    margin-right: 6px;
+    margin-right: 10px;
+    box-shadow: 0 0 15px 8px black;
 }
-
-@media all and (max-width: 850px){
-    #menu{
+@media all and (max-width: 700px){
+    #header_navbar-menu {
         flex-direction: column;
-        text-align: center;
-        margin-left: min(70px, 50px);
+        /*align-items: center;*/
+        margin-right: 8vw;
     }
-
-    #menu a{
-        margin-right: 0;
-        margin-left: 0;
+    #header_logo img{
+        height: 75%;
+        top: 10px;left: -10px;
+    }
+    .header_navbar-link{
+        font-size: 16px;
+        padding: 5px;
+    }
+    #menu_deroulant_categories{
+        top: 35px;
+    }
+    .menu_categorie{
+        font-size: 24px;
     }
     #search_box input{
         width: 8rem;
-        margin-left: 2rem;
     }
-
-    /*#meilleur_film{*/
-    /*    height: 33vh;*/
-    /*}*/
+    #search_box i{
+        display: none;
+    }
 }
-
