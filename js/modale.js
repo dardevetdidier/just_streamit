@@ -10,10 +10,16 @@ let cross = document.getElementsByClassName("fermer_modale")[0]; // getElementsB
 
 // open the model when th user clicks on image
 btn_img.onclick = function () {
-    modal.style.display = "block";
+    modal.style.display = "flex";
 }
 
 //close the modale when the user clicks on the cross
 cross.onclick = function () {
     modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
