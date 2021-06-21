@@ -119,7 +119,7 @@ header {
 
 /* MODALE */
 .modale {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -131,20 +131,6 @@ header {
     background-color: rgba(0, 0, 0, 0.8) ;
 
 }
-
-.fermer_modale {
-    color: #aaa;
-    float: right;
-    padding-right: 3%;
-    font-size: 30px;
-    font-weight: bold;
-}
-.fermer_modale:hover,
-.fermer_modale:focus {
-    color: white;
-    cursor: pointer;
-}
-
 .contenu_modale {
     position: relative;
     background-color: rgba(0, 0, 0, 0.9);
@@ -156,6 +142,18 @@ header {
     color: white;
     text-align: center;
 }
+.fermer_modale {
+    color: #aaa;
+    float: right;
+    padding-right: 2%;
+    font-size: 40px;
+    font-weight: bold;
+}
+.fermer_modale:hover,
+.fermer_modale:focus {
+    color: white;
+    cursor: pointer;
+}
 
 /* CAROUSSELS */
 #contenu{
@@ -164,8 +162,38 @@ header {
     width: 100%;
     height: auto;
 }
-#contenu_categorie_1, #contenu_categorie_2,  #contenu_categorie_3, #contenu_categorie_4 {
+.caroussel .bouton_slider_left,
+.caroussel .bouton_slider_right {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    z-index: 3;
+}
+.caroussel .bouton_slider_left {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+
+}
+.caroussel .bouton_slider_right {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+}
+.caroussel .bouton_slider_left:hover {
+    cursor: pointer;
+    color: #dedede;
+}
+.caroussel .bouton_slider_right:hover {
+    cursor: pointer;
+    color: #dedede;
+}
+.caroussel {
     margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
 }
 .contenu_categorie-link{
     position: relative;
@@ -182,19 +210,20 @@ header {
 .films {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     height: auto;
-    border: inset 10px black;
+    border: inset 8px black;
     border-radius: 15px;
-    overflow: scroll;
+    overflow: hidden;
+    background-color: black;
 }
 .films img {
     position: relative;
-    width: 20vw;
+    width: 22.05vw;
     height: auto;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
     box-shadow: 0 0 15px 8px black;
 }
 
@@ -222,5 +251,8 @@ header {
     }
     #search_box i{
         display: none;
+    }
+    .films img {
+        width: 43.7vw;
     }
 }
