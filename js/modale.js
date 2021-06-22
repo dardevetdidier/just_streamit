@@ -8,12 +8,13 @@ let btn_img = document.getElementById("meilleur_film-image");
 let cross = document.getElementsByClassName("fermer_modale")[0]; // getElementsByClassName returns a list
 
 
-// open the model when the user clicks on image
+// open the modal when the user clicks on image
 btn_img.onclick = function () {
     modal.style.display = "flex";
+
 }
 
-//close the modale when the user clicks on the cross
+//close the modal when the user clicks on the cross
 cross.onclick = function () {
     modal.style.display = "none";
 }
