@@ -300,7 +300,7 @@ body {
 }
 
 .conteneur {
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 
@@ -435,6 +435,14 @@ header form i {
     margin-right: 1.25em;
 }
 
+/* ----- ----- ----- ----- ----- ----- TITRE  ----- ----- ----- ----- ----- -----*/
+
+#caroussel_meilleurs_films h3 {
+    color: #fff;
+    font-size: 30px;
+}
+
+
 /* ------ ----- ----- ----- CONTENU PRINCIPAL ET FLECHES ----- ----- ----- ----- */
 
 #caroussel_meilleurs_films {
@@ -461,12 +469,51 @@ header form i {
     cursor: pointer;
     z-index: 500;
     transition: .2s ease all;
+}
 
+#caroussel_meilleurs_films .contenu_principal .fleche_gauche:hover,
+#caroussel_meilleurs_films .contenu_principal .fleche_droite:hover {
+    background: rgba(0,0,0,0.9);
+}
+
+#caroussel_meilleurs_films .contenu_principal .fleche_gauche {
+    left: 0;
+}
+#caroussel_meilleurs_films .contenu_principal .fleche_droite {
+    right: 0;
 }
 
 
+/* ----- ----- ----- ----- - CAROUSSEL ----- ----- ---- -- ------ ---- */
 
+#caroussel_meilleurs_films .contenu_caroussel {
+    width: 100%;
+    padding: 20px 0;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
 
+#caroussel_meilleurs_films .contenu_caroussel .caroussel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#caroussel_meilleurs_films .contenu_caroussel .caroussel .film {
+    min-width: 20%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+
+}
+
+#caroussel_meilleurs_films .contenu_caroussel .caroussel .film:hover {
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+#caroussel_meilleurs_films .contenu_caroussel .caroussel .film img {
+    width: 100%;
+    vertical-align: top;
+}
 
 /* ----- -----  -----  ----- MEDIA QUERIES ----- -----  -----  ------ */
 @media screen and (max-width: 800px) {
@@ -506,5 +553,21 @@ header form i {
     .informations .titre {
         font-size: 1.5em;
     }
+
+    #caroussel_meilleurs_films .contenu_caroussel {
+        overflow: visible;
+    }
+
+    #caroussel_meilleurs_films .contenu_caroussel .caroussel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    #caroussel_meilleurs_films .contenu_principal .fleche_gauche,
+    #caroussel_meilleurs_films .contenu_principal .fleche_droite {
+        display: none;
+    }
+
 }
 
