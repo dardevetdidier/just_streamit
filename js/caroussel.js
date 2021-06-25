@@ -1,22 +1,25 @@
 // Get buttons and caroussels
-const buttonRight = document.getElementsByClassName("bouton_slider_right");
-const buttonLeft = document.getElementsByClassName("bouton_slider_left");
-const caroussels = document.getElementsByClassName("films");
+
+const flechesDroites = document.getElementsByClassName("fleche_droite");
+const flechesGauches = document.getElementsByClassName("fleche_gauche");
+const film = document.querySelector('.film');
+
+const caroussels = document.getElementsByClassName("contenu_caroussel");
 
 
 // scroll caroussel when clicks on right or left arrow
-function scrollCaroussel(buttonR, buttonL, caroussel) {
-    buttonR.addEventListener('click', () => {
-    caroussel.scrollLeft += document.getElementById("cat1_film0").clientWidth + 50;
+function scrollCaroussel(flecheG, flecheD, caroussel) {
+    flecheG.addEventListener('click', () => {
+    caroussel.scrollLeft += film.clientWidth;
 });
 
-    buttonL.addEventListener('click', () => {
-    caroussel.scrollLeft -= document.getElementById("cat1_film0").clientWidth + 50;
+    flecheD.addEventListener('click', () => {
+    caroussel.scrollLeft -= film.clientWidth;
 });
 }
 
-// scrolls all caroussels
-scrollCaroussel(buttonRight[0], buttonLeft[0], caroussels[0]);
-scrollCaroussel(buttonRight[1], buttonLeft[1], caroussels[1]);
-scrollCaroussel(buttonRight[2], buttonLeft[2], caroussels[2]);
-scrollCaroussel(buttonRight[3], buttonLeft[3], caroussels[3]);
+// scrolls all caroussels0
+scrollCaroussel(flechesDroites[0], flechesGauches[0], caroussels[0]);
+scrollCaroussel(flechesDroites[1], flechesGauches[1], caroussels[1]);
+scrollCaroussel(flechesDroites[2], flechesGauches[2], caroussels[2]);
+scrollCaroussel(flechesDroites[3], flechesGauches[3], caroussels[3]);
