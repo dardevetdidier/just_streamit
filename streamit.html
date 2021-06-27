@@ -18,9 +18,15 @@
         <header>
             <div class="conteneur">
                 <h2 id="logo">JustStreamIt</h2>
-    
+                
                 <div id="categories-recherche">
                     <a href="#" id="categories">Catégories</a>
+                    <div id="menu_deroulant_categories">
+                        <a href="#titre_categorie_1" id="lien_categorie1">Meilleurs films</a>
+                        <a href="#titre_categorie_2" id="lien_categorie2">Films musicaux</a>
+                        <a href="#titre_categorie_3" id="lien_categorie3">Comédies</a>
+                        <a href="#titre_categorie_4" id="lien_categorie4">Films d'animation</a>
+                    </div>
                     <form id="champ_recherche" action="#">
                         <label for="recherche"></label>
                         <i class="fas fa-search"></i>
@@ -31,6 +37,27 @@
         </header>
         
         <main>
+            
+<!--        ------ ------ -- ------ ------  MODALE ------ ------ ------ ------ ------ ------ -->
+            
+            
+            <div id="modale">
+                <div id="contenu_modale">
+                    <span id="fermer_modale"><i class="fas fa-times"></i></span>
+                    <div id="image_modale">
+<!--                        <a href="#"><img src="/images/insterstellar_res_default.jpg" alt="image film"></a>-->
+                    </div>
+                    <div id="texte_modale">
+                        <h4>titre du film</h4>
+                        <p>Description du film</p>
+                        <p>1995</p>
+                        <p>réalisateur: F.Jackson</p>
+                    </div>
+                </div>
+            </div>
+        
+<!--        ------ ------ ------- ----- ---- MEILLEUR FILM ----- ------ ------ ----- ------>
+           
            <div id="meilleur_film" class="conteneur">
                 
                 <div id="meilleur_film_image"></div>
@@ -38,15 +65,17 @@
                 <div class="informations">
                     <h3 class="titre">Titre du meilleur film</h3>
                     <p class="description">La description du meilleur film va se trouver ici.</p>
-                    <button role="button" class="bouton"><i class="fas fa-info-circle"></i> Plus d'informations</button>
+                    <button role="button" class="film bouton"><i class="fas fa-info-circle"></i> Plus d'informations</button>
                 </div>
                 
             </div>
             
+<!--       ---- ----- ------ ----- ------ CAROUSSEL ----- ------ ------ ----- ----- ------ -->
+            
            <div id="caroussels">
                
                <div class="caroussel_meilleurs_films conteneur">
-                   <h3>Les meilleurs films de JustStreamIt</h3>
+                   <h3 id="titre_categorie_1">Les meilleurs films de JustStreamIt</h3>
                    
                    <div class="contenu_principal">
                        
@@ -83,8 +112,9 @@
                    
                </div>
                
+               
                <div class="caroussel_meilleurs_films conteneur">
-                   <h3>Catégorie 2</h3>
+                   <h3 id="titre_categorie_2">Films musicaux</h3>
                    
                    <div class="contenu_principal">
                        
@@ -122,7 +152,7 @@
                </div>
                
                <div class="caroussel_meilleurs_films conteneur">
-                   <h3>Categorie 3</h3>
+                   <h3 id="titre_categorie_3">Comédies</h3>
                    
                    <div class="contenu_principal">
                        
@@ -160,7 +190,7 @@
                </div>
                
                <div class="caroussel_meilleurs_films conteneur">
-                   <h3>catégorie 4</h3>
+                   <h3 id="titre_categorie_4">Films d'animation</h3>
                    
                    <div class="contenu_principal">
                        
@@ -206,5 +236,7 @@
         
         <script src="js/caroussel.js"></script>
         <script src="js/getdata.js"></script>
+        <script src="js/menu_deroulant.js"></script>
+        <script src="js/modale.js" ></script>
     </body>
 </html>

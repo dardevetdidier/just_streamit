@@ -1,5 +1,5 @@
 // get the button (categories)
-let toggleMenuDeroulant = document.getElementById("bouton_cat");
+let toggleMenuDeroulant = document.getElementById("categories");
 
 // get the modal
 let menuDeroulant = document.getElementById("menu_deroulant_categories")
