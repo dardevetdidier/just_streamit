@@ -44,7 +44,7 @@ header #logo {
     font-weight: normal;
     color: var(--rouge);
     font-size: 40px;
-    margin-right: 10%;
+    margin-right: 11%;
 
 }
 header .fa-search {
@@ -115,15 +115,15 @@ header form i {
     border-radius: 15px;
     padding: 2em;
 }
-#modale #contenu_modale #texte_modale {
+#modale #contenu_modale .informations {
     position: relative ;
     color: #fff;
     padding-left: 2em;
 }
 #modale #contenu_modale #image_modale {
     position: relative;
-    width: 20em;
-    height: 28em;
+    width: 22em;
+    height: 32em;
     border-radius: 10px;
 }
 #modale #contenu_modale .fa-times {
@@ -144,13 +144,15 @@ header form i {
 #meilleur_film {
     position: relative;
     font-size: 16px;
+
     min-height: 30.62em;
     max-width: 100%;
     background-color: rgba(30,30,30,0.7);
     color: #fff;
     margin-bottom: 3.12em;
+    padding: 0 2em;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     border-radius: 10px;
 }
@@ -158,31 +160,39 @@ header form i {
 #meilleur_film_image {
     background: rgba(0,0,0, .2);
     background-size: cover;
-    width: 20em;
-    height: 25em;
+    min-width: 18em;
+    min-height: 25em;
     margin: 0 1em 0 1em;
     border-radius: 10px;
 }
 
-.informations {
-    width: 90%;
+#informations {
+    width: 60%;
+    min-height: 25em;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-start;
+    margin-right: 12em;
+
 }
-.informations .titre {
+
+#informations .titre {
     font-weight: 600;
     font-size: 2em;
-    margin-bottom: 0.4em;
 }
-.informations .description {
+#informations .description {
     font-weight: normal;
     font-size: 1em;
     line-height: 1.75em;
-    max-width: 80%;
-    margin-bottom: 1.25em;
+    max-width: 100%;
+    margin-bottom: 2em;
 }
-.informations .bouton {
+#informations p {
+    margin-bottom: 2em;
+}
+#informations .bouton {
+    position: absolute;
+    bottom: 4em;
     background-color: rgba(224,224,224, 0.5);
     border: none;
     border-radius: 0.31em;
@@ -192,11 +202,11 @@ header form i {
     transition: .3s ease all;
     font-size: 0.85em;
 }
-.informations .bouton:hover {
+#informations .bouton:hover {
     background: white;
     color: #000;
 }
-.informations .bouton i {
+#informations .bouton i {
     margin-right: 1.25em;
 }
 
@@ -329,14 +339,19 @@ header form i {
         height: 25em;
         margin-top: 0.5em;
     }
-    .informations {
-        margin: 0.5em
+    #informations {
+        margin: 1em;
+        align-items: center;
+
+
     }
-    .informations .description {
+    #informations .description {
         max-width: 100%;
-        font-size: 0.8em;
+        font-size: 0.9em;
+        text-align: justify;
+
     }
-    .informations .titre {
+    #informations .titre {
         font-size: 1.5em;
     }
 

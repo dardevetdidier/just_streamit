@@ -7,10 +7,18 @@ let openButton = document.getElementsByClassName("film");
 //get the <span> element to close the modal
 let closeButton = document.getElementById("fermer_modale");
 
+console.log(openButton);
+
+
+function displayModal(i) {
+    return function() {
+        modal.style.display = "flex";
+    }
+}
 
 // open the modal when the user clicks on image
-openButton[0].onclick = function () {
-    modal.style.display = "flex";
+for (let i = 0; i < openButton.length; i++) {
+    openButton[i].addEventListener('click', displayModal(i));
 }
 
 //close the modal when the user clicks on the cross
