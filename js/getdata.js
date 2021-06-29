@@ -7,15 +7,26 @@ const filmsCaroussel3 = document.getElementsByClassName('film3');
 const filmsCaroussel4 = document.getElementsByClassName('film4');
 
 const imageBestFilm = document.getElementById("meilleur_film_image");
-const modaleImage = document.getElementById("image_modale");
 const infoBestFilm = document.getElementById('informations');
+
+
+// get the modal
+const modal = document.getElementById("modale");
+const modaleImage = document.getElementById("image_modale");
+const modaleInfo = document.getElementById("informations_modale");
+
+//get the button to open (try click on image)
+let openButton = document.getElementsByClassName("bouton");
+
+//get the <span> element to close the modal
+let closeButton = document.getElementById("fermer_modale");
 
 
 
 // ----------  -------  ------------  GET URLS  ---------   ----------  ------------
 
 const urlBase = 'http://localhost:8000/api/v1/titles/'
-const urlImdbScore = 'http://localhost:8000/api/v1/titles?imdb_score_min = 9.6&sort_by=-imdb_score,-votes';
+const urlImdbScore = 'http://localhost:8000/api/v1/titles?imdb_score_min = 9.6&sort_by=-imdb_score,-votes&page_size=7';
 const urlMusic = "http://localhost:8000/api/v1/titles/?genre=Music&imdb_score_min=8&sort_by=-imdb_score,-votes";
 const urlComedy = "http://localhost:8000/api/v1/titles/?genre=Comedy&imdb_score_min=8&sort_by=-imdb_score,-votes";
 const urlAnimation = "http://localhost:8000/api/v1/titles/?genre=Animation&imdb_score_min=8&sort_by=-imdb_score,-votes"
@@ -31,12 +42,10 @@ let idsListBestFilms = [];
 let idsListMusicalFilms = [];
 let idsListComedyFilms = [];
 let idsLIstAnimationFilms = [];
-// let query = 'image_url';
 
-// ----- -------- --------- -------  GET IMAGES BESTS FILM  ----- ------  ------- ------
+// ----- -------- --------- -------  DISPLAY INFO AND IMAGES BEST FILM  ----- ------  ------- ------
 
-function displayFilmInfo (response, element){
-    console.log(response);
+function displayBestFilmInfo (response, element){
 
     // CREATE TITLE
     const title = document.createElement("H1");
@@ -65,13 +74,15 @@ function displayFilmInfo (response, element){
     element.appendChild(description);
 
     // CREATE BACKGROUND IMAGE
-    imageBestFilm.style.background = `url("${response['image_url']}") no-repeat center center`;
-    imageBestFilm.style.backgroundSize = 'cover';
+    imageBestFilm.innerHTML = `<a href="#"><img id="${response['id']}" src="${response['image_url']}" alt="image film"></a>`;
+    // imageBestFilm.style.backgroundSize = 'cover';
 }
 
 
 
-function get_film_infos (url) {
+// ----- ---------- --------- ------  DISPLAY MODAL INFO AND IMAGE  --------- -------- ------ ---------
+
+function display_modal_info (url) {
     fetch(url)
         .then(function(response) {
         if (response.ok) {
@@ -79,7 +90,40 @@ function get_film_infos (url) {
         }
         })
         .then(function(response){
-            displayFilmInfo(response, infoBestFilm);
+            modaleInfo.innerHTML = `
+                <h1>${response.title}</h1>
+                <p>genre(s) : ${response['genres'].join(", ")}</p>
+                <p>date de sortie : ${response["date_published"]}</p>
+                <p>rated : ${response["rated"]}</p>
+                <p>score imdb : ${response["imdb_score"]} </p>
+                <p>réalisateur(s) : ${response["directors"].join(", ")}</p>
+                <p>acteurs : ${response["actors"].join(", ")}</p>
+                <p>durée : ${response["duration"]}</p>
+                <p>Origine : ${response["countries"].join(", ")}</p>
+                <p>Box Office : ${response["worldwide_gross_income"]}</p>
+                <p>Résumé : ${response["long_description"]}</p>`;
+
+            modaleImage.style.background = `url(${response['image_url']}) center center`;
+            modaleImage.style.backgroundSize = 'cover';
+
+        })
+        .catch(function(err) {
+            console.log(err)
+        });
+
+}
+
+
+function displayBestfilmInfo (url, element) {
+    fetch(url)
+        .then(function(response) {
+        if (response.ok) {
+            return response.json();
+        }
+        })
+        .then(function(response){
+            displayBestFilmInfo(response, element);
+
         })
         .catch(function(err) {
             console.log(err)
@@ -104,40 +148,43 @@ function get_film_infos (url) {
 // }
 
 
+// ---------------------------------------------------  click on image ------------------------------------------
 
 
-// --------- ----------- -------------- ----------!!!!!!! GET INFO AVEC AXIOS PROBLEME !!!! ---------------------
+document.onclick = function(event) {
 
-// async function get_film_infos (url) {
-//     try {
-//         return await axios(url)
-//             .then(function (response){
-//                 console.log(response);
-//             })
-//
-//     } catch (error){
-//         console.log(error);
-//     }
-//
-// }
+    const target = event.target;
 
+    if (target.tagName.toLowerCase() === 'img') {
+        console.log("hello world");
+        modal.style.display = "flex";
+        event.preventDefault();
+        console.log ('event :', event);
 
+        const movieId = target.id;
+
+        console.log("movieId: ", movieId);
+
+        display_modal_info(urlBase + movieId)
+    }
+}
 
 /**
  * Modify DOM to display images in caroussel
  * @param response
  * @param images
+ * @param ids
  * @param caroussel
  */
-function display_images_caroussel(response, images, caroussel){
+function display_images_caroussel(response, images, ids, caroussel){
     for (let i in images) {
         if (images.hasOwnProperty(i)) {
-            caroussel[i].insertAdjacentHTML("beforeend", "<a href=\"#\"><img src='" + images[i] + "' alt=\"image_film\"></a>");
+            caroussel[i].insertAdjacentHTML("beforeend", `<a href="#"><img id="${ids[i]}" src='${images[i]}' alt="image_film"></a>`);
         }
     }
 }
 
-
+//    -----------------------------------  PAGINATION ---------------------------------------------------------------
 
 // /**
 //  * Modify DOM to display image in "Best Film section"
@@ -152,19 +199,17 @@ function display_images_caroussel(response, images, caroussel){
 
 
 /**
- * Get a list of film id and a list of images urls from api according to a specific query
+ * Get a list of film id and a list of images urls from api
  * @param url
- * @param numElements
- * @param query
  * @param idsList
  * @param urlImagesList
  * @returns {Promise<void>}
  */
-async function getImagesAndIdFilms (url, numElements, query, idsList, urlImagesList) {
+async function getImagesAndIdFilms (url, idsList, urlImagesList) {
     let next = "";
     let result;
 
-    while (idsList.length < numElements) {
+    while (idsList.length < 7) {
         try {
             result = await axios.get(url + next)
                 .then(function (response) {
@@ -172,8 +217,8 @@ async function getImagesAndIdFilms (url, numElements, query, idsList, urlImagesL
                     console.log(response);
                     for (let i in data) {
                         if (data.hasOwnProperty(i)) {
-                            if (idsList.length < numElements) {
-                                urlImagesList.push(data[i][query]);
+                            if (idsList.length < 7) {
+                                urlImagesList.push(data[i]['image_url']);
                                 idsList.push(data[i]['id']);
                             } else {
                                 break;
@@ -182,13 +227,44 @@ async function getImagesAndIdFilms (url, numElements, query, idsList, urlImagesL
                     }
                     next = "&page=2";
                 })
-            } catch(error) {
-                    console.log(error);
-            }
+        } catch (error) {
+            console.log(error);
+        }
     }
     return result;
 }
 
+// ______________________________________________________________________________________________________________
+
+
+// ------------------------------------ NO PAGINATION -----------------------------------------------------------
+
+// /**
+//  * Get a list of film id and a list of images urls from api
+//  * @param url
+//  * @param idsList
+//  * @param urlImagesList
+//  * @returns {Promise<void>}
+//  */
+// async function getImagesAndIdFilms (url, idsList, urlImagesList) {
+//     let result;
+//     try {
+//         result = await axios.get(url)
+//             .then(function (response) {
+//                 let data = response.data.results;
+//                 console.log(response);
+//                 for (let i in data) {
+//                     if (data.hasOwnProperty(i)) {
+//                         urlImagesList.push(data[i]['image_url']);
+//                         idsList.push(data[i]['id']);
+//                     }
+//                 }
+//             })
+//     } catch (error) {
+//         console.log(error);
+//     }
+//     return result;
+// }
 
 //
 // let imageUrlsListImdbScore = [];
@@ -231,37 +307,37 @@ async function getImagesAndIdFilms (url, numElements, query, idsList, urlImagesL
 
 // display caroussel 1 images and get ids of category 1
 
-getImagesAndIdFilms(urlImdbScore, 7, 'image_url', idsListBestFilms, imageUrlsListImdbScore)
+getImagesAndIdFilms(urlImdbScore, idsListBestFilms, imageUrlsListImdbScore)
     .then(response => {
-        display_images_caroussel(response, imageUrlsListImdbScore, filmsCaroussel1);
+        display_images_caroussel(response, imageUrlsListImdbScore, idsListBestFilms, filmsCaroussel1);
         console.log(idsListBestFilms);
     });
 
 
 // display caroussel 2 images and get ids of category 2
 
-getImagesAndIdFilms(urlMusic, 7, 'image_url', idsListMusicalFilms, imageUrlsListMusic)
+getImagesAndIdFilms(urlMusic, idsListMusicalFilms, imageUrlsListMusic)
     .then(response => {
-        display_images_caroussel(response, imageUrlsListMusic , filmsCaroussel2);
+        display_images_caroussel(response, imageUrlsListMusic, idsListMusicalFilms, filmsCaroussel2);
         console.log(idsListMusicalFilms);
     })
 
 
 // display caroussel 3 images and get ids of category 3
 
-getImagesAndIdFilms(urlComedy, 7, 'image_url', idsListComedyFilms, imageUrlsListComedy)
+getImagesAndIdFilms(urlComedy, idsListComedyFilms, imageUrlsListComedy)
     .then(response => {
-        display_images_caroussel(response, imageUrlsListComedy, filmsCaroussel3);
+        display_images_caroussel(response, imageUrlsListComedy,idsListComedyFilms, filmsCaroussel3);
         console.log(idsListComedyFilms);
     })
 
 // display caroussel 4 images and get ids of category 4
 
-getImagesAndIdFilms(urlAnimation, 7, 'image_url', idsLIstAnimationFilms, imageUrlsListAnimation)
+getImagesAndIdFilms(urlAnimation, idsLIstAnimationFilms, imageUrlsListAnimation)
     .then(response => {
-        display_images_caroussel(response, imageUrlsListAnimation, filmsCaroussel4);
+        display_images_caroussel(response, imageUrlsListAnimation,idsLIstAnimationFilms, filmsCaroussel4);
         console.log(idsLIstAnimationFilms);
     })
 
 // display image and informations in "Best Film" window
-get_film_infos(urlBase + "9008642");
+displayBestfilmInfo(urlBase + "9008642", infoBestFilm);

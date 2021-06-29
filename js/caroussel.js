@@ -10,11 +10,11 @@ const caroussels = document.getElementsByClassName("contenu_caroussel");
 // scroll caroussel when clicks on right or left arrow
 function scrollCaroussel(flecheG, flecheD, caroussel) {
     flecheG.addEventListener('click', () => {
-    caroussel.scrollLeft += film.clientWidth + 100;
+    caroussel.scrollLeft += film.clientWidth + 110;
 });
 
     flecheD.addEventListener('click', () => {
-    caroussel.scrollLeft -= film.clientWidth + 100;
+    caroussel.scrollLeft -= film.clientWidth + 110;
 });
 }
 

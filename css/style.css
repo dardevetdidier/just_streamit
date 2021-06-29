@@ -94,42 +94,66 @@ header form i {
 /* -----  -----  -----  -----     MODALE  -----  -----  ------  -----  ----- */
 
 #modale {
-    position: absolute;
+    position: fixed;
     display: none;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 300vh;
     background: rgba(0,0,0, .9);
+
     z-index: 599;
 }
 
 #modale #contenu_modale {
     position: absolute;
-    top: 2em;
+    top: 5em;
     background: #141414;
-    min-width: 60%;
-    min-height: 25%;
+    width: 80%;
+    max-height: 80%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     border-radius: 15px;
     padding: 2em;
+    overflow: auto;
+
 }
-#modale #contenu_modale .informations {
-    position: relative ;
+#modale #contenu_modale #informations_modale {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 75%;
+    max-height: 90vh;
     color: #fff;
-    padding-left: 2em;
+    font-weight: normal;
+    font-size: 0.9em;
+    padding-left: 2.5em;
+    /*margin-right: 12em;*/
+}
+#modale #contenu_modale #informations_modale p {
+    margin-bottom: 0.5em;
+}
+#modale #contenu_modale #informations_modale h1 {
+    margin-bottom: 1em;
+    font-size: 2em;
 }
 #modale #contenu_modale #image_modale {
     position: relative;
-    width: 22em;
-    height: 32em;
+    min-width: 18em;
+    min-height: 25em;
     border-radius: 10px;
 }
+/*#modale #contenu_modale #image_modale img {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    cursor: initial;*/
+/*}*/
 #modale #contenu_modale .fa-times {
-    position: absolute;
+    position: fixed;
     top: 0.5em;
-    right: 0.5em;
+    right: 1em;
     font-size: 30px;
     color: #fff;
 }
@@ -144,7 +168,6 @@ header form i {
 #meilleur_film {
     position: relative;
     font-size: 16px;
-
     min-height: 30.62em;
     max-width: 100%;
     background-color: rgba(30,30,30,0.7);
@@ -165,14 +188,20 @@ header form i {
     margin: 0 1em 0 1em;
     border-radius: 10px;
 }
+#meilleur_film_image img {
+    width: 100%;
+    height: auto;
+}
 
 #informations {
-    width: 60%;
+    width: 90%;
+    min-width: 15em;
     min-height: 25em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-right: 12em;
+    margin-right: 8em;
+    font-size: 0.9em;
 
 }
 
@@ -335,9 +364,8 @@ header form i {
         display: none;
     }
     #meilleur_film_image {
-        width: 18.7em;
-        height: 25em;
-        margin-top: 0.5em;
+
+        margin-top: 1.5em;
     }
     #informations {
         margin: 1em;
@@ -361,7 +389,7 @@ header form i {
 
     .caroussel_meilleurs_films .contenu_caroussel .caroussel {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
@@ -369,10 +397,33 @@ header form i {
     .caroussel_meilleurs_films .contenu_principal .fleche_droite {
         display: none;
     }
+
     h3 {
         text-align: center;
+    }
+
+    #modale #contenu_modale {
+        flex-direction: column;
+        align-items: center;
+        max-height: 40em;
+    }
+    #modale #contenu_modale #informations_modale {
+
+        padding: 0 ;
+        margin-left:4em;
+
 
     }
+    #modale #contenu_modale #informations_modale h1 {
+        padding: 1em 0;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    #modale #contenu_modale #image_modale {
+        min-width: 8em;
+        min-height: 12em;
+
+}
 
 }
 
