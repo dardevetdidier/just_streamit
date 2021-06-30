@@ -1,4 +1,4 @@
-// Get buttons and caroussels
+// ---- --------- --------- GET BUTTONS AND CAROUSSELS  --------- ------- ------- ----------
 
 const flechesDroites = document.getElementsByClassName("fleche_droite");
 const flechesGauches = document.getElementsByClassName("fleche_gauche");
@@ -7,18 +7,46 @@ const film = document.querySelector('.film');
 const caroussels = document.getElementsByClassName("contenu_caroussel");
 
 
-// scroll caroussel when clicks on right or left arrow
+
+
+/**
+ * Modifies DOM inserting in a caroussel images of films from urls list. Add the id of the film as 'id '.
+ * @param response
+ * @param images
+ * @param ids
+ * @param caroussel
+ */
+function display_images_caroussel(response, images, ids, caroussel){
+    for (let i in images) {
+        if (images.hasOwnProperty(i)) {
+            caroussel[i].insertAdjacentHTML("beforeend", `<a href="#"><img id="${ids[i]}" src='${images[i]}' alt="image_film"></a>`);
+        }
+    }
+}
+
+
+// ------- ---------- -------- SCROLLING CAROUSSEL ------- ------- ----------- ------------
+
+
+
+/**
+ * scrolls caroussel when clicks on right or left arrow
+ * @param flecheG
+ * @param flecheD
+ * @param caroussel
+ */
 function scrollCaroussel(flecheG, flecheD, caroussel) {
     flecheG.addEventListener('click', () => {
-    caroussel.scrollLeft += film.clientWidth + 110;
+    caroussel.scrollLeft += film.clientWidth;
 });
 
     flecheD.addEventListener('click', () => {
-    caroussel.scrollLeft -= film.clientWidth + 110;
+    caroussel.scrollLeft -= film.clientWidth;
 });
 }
 
-// scrolls all caroussels0
+
+// scrolls all caroussels
 scrollCaroussel(flechesDroites[0], flechesGauches[0], caroussels[0]);
 scrollCaroussel(flechesDroites[1], flechesGauches[1], caroussels[1]);
 scrollCaroussel(flechesDroites[2], flechesGauches[2], caroussels[2]);

@@ -26,10 +26,10 @@ let closeButton = document.getElementById("fermer_modale");
 // ----------  -------  ------------  GET URLS  ---------   ----------  ------------
 
 const urlBase = 'http://localhost:8000/api/v1/titles/'
-const urlImdbScore = 'http://localhost:8000/api/v1/titles?imdb_score_min = 9.6&sort_by=-imdb_score,-votes&page_size=7';
+const urlImdbScore = 'http://localhost:8000/api/v1/titles/?imdb_score_min=9&sort_by=-imdb_score,-votes';
 const urlMusic = "http://localhost:8000/api/v1/titles/?genre=Music&imdb_score_min=8&sort_by=-imdb_score,-votes";
 const urlComedy = "http://localhost:8000/api/v1/titles/?genre=Comedy&imdb_score_min=8&sort_by=-imdb_score,-votes";
-const urlAnimation = "http://localhost:8000/api/v1/titles/?genre=Animation&imdb_score_min=8&sort_by=-imdb_score,-votes"
+const urlAnimation = "http://localhost:8000/api/v1/titles/?genre=Animation&imdb_score_min=8&sort_by=-imdb_score,-votes";
 
 
 // --------  ----------  -----------  VARIABLE DECLARATION -----  ---------   -------------
@@ -45,7 +45,13 @@ let idsLIstAnimationFilms = [];
 
 // ----- -------- --------- -------  DISPLAY INFO AND IMAGES BEST FILM  ----- ------  ------- ------
 
-function displayBestFilmInfo (response, element){
+
+/**
+ * creates a html template into the element for the Best Film section, using response of API request
+ * @param response
+ * @param element
+ */
+function createsTemplateBestFilmInfo (response, element){
 
     // CREATE TITLE
     const title = document.createElement("H1");
@@ -75,45 +81,14 @@ function displayBestFilmInfo (response, element){
 
     // CREATE BACKGROUND IMAGE
     imageBestFilm.innerHTML = `<a href="#"><img id="${response['id']}" src="${response['image_url']}" alt="image film"></a>`;
-    // imageBestFilm.style.backgroundSize = 'cover';
 }
 
 
-
-// ----- ---------- --------- ------  DISPLAY MODAL INFO AND IMAGE  --------- -------- ------ ---------
-
-function display_modal_info (url) {
-    fetch(url)
-        .then(function(response) {
-        if (response.ok) {
-            return response.json();
-        }
-        })
-        .then(function(response){
-            modaleInfo.innerHTML = `
-                <h1>${response.title}</h1>
-                <p>genre(s) : ${response['genres'].join(", ")}</p>
-                <p>date de sortie : ${response["date_published"]}</p>
-                <p>rated : ${response["rated"]}</p>
-                <p>score imdb : ${response["imdb_score"]} </p>
-                <p>réalisateur(s) : ${response["directors"].join(", ")}</p>
-                <p>acteurs : ${response["actors"].join(", ")}</p>
-                <p>durée : ${response["duration"]}</p>
-                <p>Origine : ${response["countries"].join(", ")}</p>
-                <p>Box Office : ${response["worldwide_gross_income"]}</p>
-                <p>Résumé : ${response["long_description"]}</p>`;
-
-            modaleImage.style.background = `url(${response['image_url']}) center center`;
-            modaleImage.style.backgroundSize = 'cover';
-
-        })
-        .catch(function(err) {
-            console.log(err)
-        });
-
-}
-
-
+/**
+ * displays information in Best Film section using the template created in 'createsTemplateBestFilmInfo' function
+ * @param url
+ * @param element
+ */
 function displayBestfilmInfo (url, element) {
     fetch(url)
         .then(function(response) {
@@ -122,51 +97,12 @@ function displayBestfilmInfo (url, element) {
         }
         })
         .then(function(response){
-            displayBestFilmInfo(response, element);
+            createsTemplateBestFilmInfo(response, element);
 
         })
         .catch(function(err) {
             console.log(err)
         });
-}
-
-    // infoBestFilm.insertAdjacentHTML("beforeend", `<h4>${response.title}</h4>`);
-    // infoBestFilm.insertAdjacentHTML("beforeend", `<p>${response.year}</p>`);
-    // infoBestFilm.insertAdjacentHTML("beforeend", `<p>avec  ${response['actors']}</p>`);
-    // infoBestFilm.insertAdjacentHTML("beforeend", `<p${response.description}</h4>`);
-    //
-    //
-    // // for (let i = 0; i < response['genres'].length; i++) {
-    // //     infoBestFilm.insertAdjacentHTML("beforeend", `<h4>${response['genres'][i]}</h4>`);
-    // // }
-    //
-    // infoBestFilm.insertAdjacentHTML("beforeend", `<button role="button" class="film bouton"><i class="fas fa-info-circle"></i> Plus d'informations</button>`);
-
-
-//     infoBestFilm.insertAdjacentHTML("beforeend", `<h4>${response.title}</h4>`);
-//     infoBestFilm.insertAdjacentHTML("beforeend", `<p>${response.description}</p>`);
-// }
-
-
-// ---------------------------------------------------  click on image ------------------------------------------
-
-
-document.onclick = function(event) {
-
-    const target = event.target;
-
-    if (target.tagName.toLowerCase() === 'img') {
-        console.log("hello world");
-        modal.style.display = "flex";
-        event.preventDefault();
-        console.log ('event :', event);
-
-        const movieId = target.id;
-
-        console.log("movieId: ", movieId);
-
-        display_modal_info(urlBase + movieId)
-    }
 }
 
 /**
@@ -176,26 +112,9 @@ document.onclick = function(event) {
  * @param ids
  * @param caroussel
  */
-function display_images_caroussel(response, images, ids, caroussel){
-    for (let i in images) {
-        if (images.hasOwnProperty(i)) {
-            caroussel[i].insertAdjacentHTML("beforeend", `<a href="#"><img id="${ids[i]}" src='${images[i]}' alt="image_film"></a>`);
-        }
-    }
-}
+
 
 //    -----------------------------------  PAGINATION ---------------------------------------------------------------
-
-// /**
-//  * Modify DOM to display image in "Best Film section"
-//  * @param images
-//  */
-// function display_Best_Film_image(images) {
-//     imageBestFilm.style.background = `url("${images[0]}") no-repeat center center`;
-//     imageBestFilm.style.backgroundSize = 'cover';
-//     modaleImage.style.background = `url("${images[0]}") no-repeat center center`;
-//     modaleImage.style.backgroundSize = 'cover';
-// }
 
 
 /**
