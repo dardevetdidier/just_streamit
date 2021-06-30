@@ -255,6 +255,11 @@ header form i {
 
 /* ----- ----- ----- ----- ----- ----- TITRE  ----- ----- ----- ----- ----- -----*/
 
+#titre_categorie_1 span{
+    color: var(--rouge);
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+}
 .caroussel_meilleurs_films h3 {
     color: #fff;
     font-size: 30px;

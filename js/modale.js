@@ -49,7 +49,7 @@ function displayModalInfo (url) {
         }
         })
         .then(function(response){
-           templateModal(response);
+            templateModal(response);
         })
         .catch(function(err) {
             console.log(err)
@@ -77,13 +77,13 @@ document.onclick = function(event) {
 }
 
 
-//close the modal when the user clicks on the cross
+// -------------------------------  close the modal when the user clicks on the cross --------------------------------
 closeButton.onclick = function () {
     modal.style.display = "none";
 
 }
 
-//close the modal when the user clicks outside the modal
+// -----------------------------  close the modal when the user clicks outside the modal  ---------------------------
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none"
