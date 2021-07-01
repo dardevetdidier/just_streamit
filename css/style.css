@@ -26,19 +26,15 @@ header #categories-recherche {
     display: flex;
     justify-content: space-between;
 }
-
 header {
     padding: 30px 0;
 }
-
 header .conteneur {
     position:relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-
 header #logo {
     font-family: 'Bebas Neue', cursive;
     font-weight: normal;
@@ -51,12 +47,10 @@ header .fa-search {
     color: #fff;
     font-size: 12px;
 }
-
 header div a {
     color: #AAA;
     text-decoration: none;
 }
-
 header div #menu_deroulant_categories {
 
     position: absolute;
@@ -73,11 +67,9 @@ header div #menu_deroulant_categories {
     border-radius: 8px;
     z-index: 2;
 }
-
 header div a:hover {
     color: #fff;
 }
-
 header input {
     height: 2em;
     padding: 0 0.3em;
@@ -104,7 +96,6 @@ header form i {
     overflow: auto;
     z-index: 599;
 }
-
 #modale #contenu_modale {
     position: absolute;
     top: 5em;
@@ -117,7 +108,6 @@ header form i {
     border-radius: 15px;
     padding: 2em;
     overflow: auto;
-
 }
 #modale #contenu_modale #informations_modale {
     position: relative;
@@ -131,7 +121,6 @@ header form i {
     font-size: 0.9em;
     text-align: justify;
     padding-left: 2.5em;
-    /*margin-right: 12em;*/
 }
 #modale #contenu_modale #informations_modale p {
     margin-bottom: 0.5em;
@@ -151,11 +140,6 @@ header form i {
     min-height: 25em;
     border-radius: 10px;
 }
-/*#modale #contenu_modale #image_modale img {*/
-/*    width: 100%;*/
-/*    height: auto;*/
-/*    cursor: initial;*/
-/*}*/
 #modale #contenu_modale .fa-times {
     position: fixed;
     top: 0.5em;
@@ -167,7 +151,6 @@ header form i {
     cursor: pointer;
     color: #AAA;
 }
-
 
 /* -----  -----  -----  -----  MEILLEUR FILM  -----  -----  ------  -----  ----- */
 
@@ -185,9 +168,15 @@ header form i {
     align-items: center;
     border-radius: 10px;
 }
+
+.meilleur_film h3 {
+    width: 80%;
+    margin: auto;
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 20px;
+}
 #meilleur_film_image {
-    /*background: rgba(0,0,0, .2);*/
-    /*background-size: cover;*/
     min-width: 18em;
     min-height: 25em;
     margin: 0 1em 0 1em;
@@ -270,13 +259,11 @@ header form i {
 .caroussel_meilleurs_films {
     margin-bottom: 70px;
 }
-
 .caroussel_meilleurs_films .contenu_principal {
     display: flex;
     align-items: center;
     position: relative;
 }
-
 .caroussel_meilleurs_films .contenu_principal .fleche_gauche,
 .caroussel_meilleurs_films .contenu_principal .fleche_droite {
     position: absolute;
@@ -292,12 +279,10 @@ header form i {
     z-index: 500;
     transition: .2s ease all;
 }
-
 .caroussel_meilleurs_films .contenu_principal .fleche_gauche:hover,
 .caroussel_meilleurs_films .contenu_principal .fleche_droite:hover {
     background: rgba(0,0,0,0.9);
 }
-
 .caroussel_meilleurs_films .contenu_principal .fleche_gauche {
     left: 0;
 }
@@ -315,21 +300,17 @@ header form i {
     overflow: hidden;
     scroll-behavior: smooth;
 }
-
 .caroussel_meilleurs_films .contenu_caroussel .caroussel {
     display: flex;
     flex-wrap: nowrap;
 }
-
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film1,
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film2,
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film3,
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film4 {
     min-width: 20%;
     transition: .3s ease all;
-
 }
-
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film1:hover,
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film2:hover,
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film3:hover,
@@ -337,7 +318,6 @@ header form i {
     transform: scale(1.2);
     transform-origin: center;
 }
-
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film1 img,
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film2 img,
 .caroussel_meilleurs_films .contenu_caroussel .caroussel .film3 img,
@@ -349,32 +329,28 @@ header form i {
 
 /* ----- -----  -----  ----- MEDIA QUERIES ----- -----  -----  ------ */
 @media screen and (max-width: 980px) {
+   .conteneur {
+        flex-direction: column;
+    }
+
     header #logo {
         margin-bottom: 10px;
         margin-right: 0;
         font-size: 30px;
     }
-
     header div #menu_deroulant_categories {
         align-items: center;
         left: 20%;
         right: 20%;
     }
-
-    .conteneur {
-        flex-direction: column;
-    }
-
     header #categories-recherche {
         flex-direction: column;
         align-items: center;
         padding: 0;
     }
-
     header #categories-recherche a {
         margin-bottom: 1.4em;
     }
-
     header #categories-recherche input {
         height: 1.5em;
     }
@@ -382,7 +358,6 @@ header form i {
     #categories-recherche i {
         display: none;
     }
-
     #meilleur_film_image {
         min-width: 10em;
         min-height: 15em;
@@ -401,19 +376,11 @@ header form i {
         font-size: 1.5em;
     }
 
-    .caroussel_meilleurs_films .contenu_caroussel {
-        overflow: visible;
-    }
-
-    .caroussel_meilleurs_films .contenu_caroussel .caroussel {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .caroussel_meilleurs_films .contenu_principal .fleche_gauche,
-    .caroussel_meilleurs_films .contenu_principal .fleche_droite {
-        display: none;
+    .caroussel_meilleurs_films .contenu_caroussel .caroussel .film1,
+    .caroussel_meilleurs_films .contenu_caroussel .caroussel .film2,
+    .caroussel_meilleurs_films .contenu_caroussel .caroussel .film3,
+    .caroussel_meilleurs_films .contenu_caroussel .caroussel .film4 {
+        min-width: 50%;
     }
 
     h3 {
@@ -426,22 +393,18 @@ header form i {
         max-height: 80vh;
         overflow: auto;
     }
-
     #modale #contenu_modale #informations_modale {
         max-width: 95%;
         max-height: 40em;
         padding: 0;
     }
-
     #modale #contenu_modale #informations_modale h1 {
         padding: 0.5em 0;
         text-align: center;
         font-size: 1.5em;
     }
-
     #modale #contenu_modale #image_modale {
         min-width: 8em;
         min-height: 12em;
     }
 }
-

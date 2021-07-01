@@ -1,11 +1,12 @@
-
 // ------ ----- ----- ----- ----- Get html elements  ----- ----- ----- ----- -----
 
+// gets caroussels
 const filmsCaroussel1 = document.getElementsByClassName('film1');
 const filmsCaroussel2 = document.getElementsByClassName('film2');
 const filmsCaroussel3 = document.getElementsByClassName('film3');
 const filmsCaroussel4 = document.getElementsByClassName('film4');
 
+// gets elements in 'best film section'
 const imageBestFilm = document.getElementById("meilleur_film_image");
 const infoBestFilm = document.getElementById('informations');
 
@@ -15,12 +16,9 @@ const modal = document.getElementById("modale");
 const modaleImage = document.getElementById("image_modale");
 const modaleInfo = document.getElementById("informations_modale");
 
-//get the button to open (try click on image)
-let openButton = document.getElementsByClassName("bouton");
 
 //get the <span> element to close the modal
 let closeButton = document.getElementById("fermer_modale");
-
 
 
 // ----------  -------  ------------  GET URLS  ---------   ----------  ------------
@@ -32,19 +30,7 @@ const urlComedy = "http://localhost:8000/api/v1/titles/?genre=Comedy&imdb_score_
 const urlAnimation = "http://localhost:8000/api/v1/titles/?genre=Animation&imdb_score_min=8&sort_by=-imdb_score,-votes&page_size=7";
 
 
-// --------  ----------  -----------  VARIABLE DECLARATION -----  ---------   -------------
-
-let imageUrlsListImdbScore = [];
-let imageUrlsListMusic = [];
-let imageUrlsListComedy = [];
-let imageUrlsListAnimation = [];
-let idsListBestFilms = [];
-let idsListMusicalFilms = [];
-let idsListComedyFilms = [];
-let idsLIstAnimationFilms = [];
-
 // ----- -------- --------- -------  DISPLAY INFO AND IMAGES BEST FILM  ----- ------  ------- ------
-
 
 /**
  * creates a html template into the element for the Best Film section, using response of API request
@@ -98,66 +84,13 @@ function displayBestfilmInfo (url, element) {
         })
         .then(function(response){
             createsTemplateBestFilmInfo(response, element);
-
         })
         .catch(function(error) {
             console.log(error)
         });
 }
 
-/**
- * Modify DOM to display images in caroussel
- * @param response
- * @param images
- * @param ids
- * @param caroussel
- */
-
-
-//    -----------------------------------  PAGINATION ---------------------------------------------------------------
-
-//
-// /**
-//  * Get a list of film id and a list of images urls from api
-//  * @param url
-//  * @param idsList
-//  * @param urlImagesList
-//  * @returns {Promise<void>}
-//  */
-// async function getImagesAndIdFilms (url, idsList, urlImagesList) {
-//     let next = "";
-//     let result;
-//
-//     while (idsList.length < 7) {
-//         try {
-//             result = await axios.get(url + next)
-//                 .then(function (response) {
-//                     let data = response.data.results;
-//                     console.log(response);
-//                     for (let i in data) {
-//                         if (data.hasOwnProperty(i)) {
-//                             if (idsList.length < 7) {
-//                                 urlImagesList.push(data[i]['image_url']);
-//                                 idsList.push(data[i]['id']);
-//                             } else {
-//                                 break;
-//                             }
-//                         }
-//                     }
-//                     next = "&page=2";
-//                 })
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-//     return result;
-// }
-
-// ______________________________________________________________________________________________________________
-
-
-// ------------------------------------ NO PAGINATION -----------------------------------------------------------
-
+// ---------- --------- ----------  MAKES API REQUEST AND DISPLAYS IMAGES IN CAROUSSELS ----- ------- ----- ----- ----
 /**
  * Get a list of film id and a list of images urls from api
  * @param url
@@ -170,72 +103,22 @@ function getImagesAndIdFilms (url, caroussel) {
                 return response.json();
             }
         })
-        .then(function (response) {
-            // let data = response.data.results;
+        .then(async function (response) {
             console.log(response);
-            // for (let i in data) {
-            //     if (data.hasOwnProperty(i)) {
-            //         urlImagesList.push(data[i]['image_url']);
-            //         idsList.push(data[i]['id']);
-            //     }
-            // }
-            display_images_caroussel(response, caroussel)
+            await display_images_caroussel(response, caroussel)
         })
         .catch(function (error) {
             console.log(error);
         })
 }
-
-
-
-
-
 // -------  --------  -----------  --------  MAIN -------- ---------  -----------  ---------
 
-// _____________________      NO PAGINATION  ___________________________________________________
 
+// display image and informations in "Best Film" window
+displayBestfilmInfo(urlBase + "9008642", infoBestFilm);
+
+// displays images in caroussels
 getImagesAndIdFilms(urlImdbScore, filmsCaroussel1);
 getImagesAndIdFilms(urlMusic, filmsCaroussel2);
 getImagesAndIdFilms(urlComedy, filmsCaroussel3);
 getImagesAndIdFilms(urlAnimation, filmsCaroussel4);
-
-
-//______________________       PAGINATION    _______________________________________________
-
-//
-// // display caroussel 1 images and get ids of category 1
-//
-// getImagesAndIdFilms(urlImdbScore, idsListBestFilms, imageUrlsListImdbScore)
-//     .then(response => {
-//         display_images_caroussel(response, imageUrlsListImdbScore, idsListBestFilms, filmsCaroussel1);
-//         console.log(idsListBestFilms);
-//     });
-//
-//
-// // display caroussel 2 images and get ids of category 2
-//
-// getImagesAndIdFilms(urlMusic, idsListMusicalFilms, imageUrlsListMusic)
-//     .then(response => {
-//         display_images_caroussel(response, imageUrlsListMusic, idsListMusicalFilms, filmsCaroussel2);
-//         console.log(idsListMusicalFilms);
-//     })
-//
-//
-// // display caroussel 3 images and get ids of category 3
-//
-// getImagesAndIdFilms(urlComedy, idsListComedyFilms, imageUrlsListComedy)
-//     .then(response => {
-//         display_images_caroussel(response, imageUrlsListComedy,idsListComedyFilms, filmsCaroussel3);
-//         console.log(idsListComedyFilms);
-//     })
-//
-// // display caroussel 4 images and get ids of category 4
-//
-// getImagesAndIdFilms(urlAnimation, idsLIstAnimationFilms, imageUrlsListAnimation)
-//     .then(response => {
-//         display_images_caroussel(response, imageUrlsListAnimation,idsLIstAnimationFilms, filmsCaroussel4);
-//         console.log(idsLIstAnimationFilms);
-//     })
-
-// display image and informations in "Best Film" window
-displayBestfilmInfo(urlBase + "9008642", infoBestFilm);

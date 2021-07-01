@@ -2,8 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="viewport" content="width=device-width">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +13,7 @@
         <title>JustStreamIt</title>
     </head>
     <body>
-        <!--        ------ ------ -- ------ ------  MODALE ------ ------ ------ ------ ------ ------ -->
+        <!--        ______________________  MODALE __________________________________________ -->
             
             
             <div id="modale">
@@ -22,22 +21,11 @@
                     <span id="fermer_modale"><i class="fas fa-times"></i></span>
                     <div id="image_modale"></div>
                     <div id="informations_modale">
-<!--                        <h1>titre du film</h1>-->
-<!--                        <p>genre : </p>-->
-<!--                        <p>date de sortie : </p>-->
-<!--                        <p>rated : </p>-->
-<!--                        <p>score imdb</p>-->
-<!--                        <p>réalisateur: </p>-->
-<!--                        <p>acteurs</p>-->
-<!--                        <p>durée: </p>-->
-<!--                        <p>Origine:</p>-->
-<!--                        <p>Box Office : </p>-->
-<!--                        <p>Résumé : </p>-->
                     </div>
                 </div>
             </div>
         
-<!--        -----------     ----------- ----------  HEADER --------  ---------  ----------  ----------  ----  -->
+<!--        _______________________________  HEADER _________________________________________  -->
         
         <header>
             <div class="conteneur">
@@ -45,12 +33,15 @@
                 
                 <div id="categories-recherche">
                     <a href="#" id="categories">Catégories à la Une</a>
-                    <div id="menu_deroulant_categories">
-                        <a href="#titre_categorie_1" id="lien_categorie1">Meilleurs films</a>
-                        <a href="#titre_categorie_2" id="lien_categorie2">Films musicaux</a>
-                        <a href="#titre_categorie_3" id="lien_categorie3">Comédies</a>
-                        <a href="#titre_categorie_4" id="lien_categorie4">Films d'animation</a>
-                    </div>
+    
+                    <nav id="menu_deroulant">
+                        <div id="menu_deroulant_categories">
+                            <a href="#titre_categorie_1" id="lien_categorie1">Meilleurs films</a>
+                            <a href="#titre_categorie_2" id="lien_categorie2">Films musicaux</a>
+                            <a href="#titre_categorie_3" id="lien_categorie3">Comédies</a>
+                            <a href="#titre_categorie_4" id="lien_categorie4">Films d'animation</a>
+                        </div>
+                    </nav>
                     <form id="champ_recherche" action="#">
                         <label for="recherche"></label>
                         <i class="fas fa-search"></i>
@@ -61,188 +52,148 @@
         </header>
         
         <main>
-            
+        
 
         
-<!--        ------ ------ ------- ----- ---- MEILLEUR FILM ----- ------ ------ ----- ------>
+<!--        ____________________________   MEILLEUR FILM ___________________________________________  -->
+    
+            <section class="meilleur_film">
+                <h3>Le meilleur film</h3>
+                <div id="meilleur_film" class="conteneur">
+                    
+                    <div id="meilleur_film_image">
+            
+                    </div>
+            
+                    <div id="informations">
+                        <p id="clic_image_info"><i class="fas fa-info-circle"></i>Cliquez sur l'image pour plus
+                            d'informations</p>
+                    </div>
+        
+                </div>
+            </section>
+            
+<!--       _________________________        CAROUSSEL       ____________________________________________ -->
            
-           <div id="meilleur_film" class="conteneur">
-                
-                <div id="meilleur_film_image">
-                
-                </div>
-
-                <div id="informations">
-                    <p id="clic_image_info"><i class="fas fa-info-circle"></i>Cliquez sur l'image pour plus d'informations</p>
-<!--                    <a role="button" class="film bouton"><i class="fas fa-info-circle"></i> Plus d'informations</a>-->
-                </div>
-                
-            </div>
-            
-<!--       ---- ----- ------ ----- ------ CAROUSSEL ----- ------ ------ ----- ----- ------ -->
-            
            <div id="caroussels">
-               
-               <div class="caroussel_meilleurs_films conteneur">
-                   <h3 id="titre_categorie_1">Les meilleurs films de <span>JustStreamIt</span></h3>
-                   
-                   <div class="contenu_principal">
-                       
-                       <button role="button" class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
-                       
-                       <div class="contenu_caroussel">
-                           <div id=caroussel1 class="caroussel">
-                               <div class="film film1">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt="image film Le Discours"></a>-->
-                               </div>
-                               <div class="film film1">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film1">
-<!--                                   <a href="#"><img src="images/villa.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film1">
-<!--                                   <a href="#"><img src="images/oubli.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film1">
-<!--                                   <a href="#"><img src="images/chacun_chez_soi.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film1">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film1">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
+    
+               <section>
+                   <div class="caroussel_meilleurs_films conteneur">
+                       <h3 id="titre_categorie_1">Les meilleurs films de <span>JustStreamIt</span></h3>
+            
+                       <div class="contenu_principal">
+                
+                           <button class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
+                
+                           <div class="contenu_caroussel">
+                               <div id=caroussel1 class="caroussel">
+                                   <div class="film film1"></div>
+                                   <div class="film film1"></div>
+                                   <div class="film film1"></div>
+                                   <div class="film film1"></div>
+                                   <div class="film film1"></div>
+                                   <div class="film film1"></div>
+                                   <div class="film film1"></div>
                                </div>
                            </div>
+                
+                           <button class="fleche_droite"><i class="fas fa-angle-right"></i></button>
                        </div>
-                       
-                       <button role="button" class="fleche_droite"><i class="fas fa-angle-right"></i></button>
+        
                    </div>
-                   
-               </div>
-               
-               
-               <div class="caroussel_meilleurs_films conteneur">
-                   <h3 id="titre_categorie_2">Films musicaux</h3>
-                   
-                   <div class="contenu_principal">
-                       
-                       <button role="button" class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
-                       
-                       <div class="contenu_caroussel">
-                           <div id=caroussel2 class="caroussel">
-                               <div class="film film2">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt="image film Le Discours"></a>-->
-                               </div>
-                               <div class="film film2">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film2">
-<!--                                   <a href="#"><img src="images/villa.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film2">
-<!--                                   <a href="#"><img src="images/oubli.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film2">
-<!--                                   <a href="#"><img src="images/chacun_chez_soi.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film2">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film2">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
+               </section>
+    
+    
+               <section>
+                   <div class="caroussel_meilleurs_films conteneur">
+                       <h3 id="titre_categorie_2">Films musicaux</h3>
+            
+                       <div class="contenu_principal">
+                
+                           <button class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
+                
+                           <div class="contenu_caroussel">
+                               <div id=caroussel2 class="caroussel">
+                                   <div class="film film2"></div>
+                                   <div class="film film2"></div>
+                                   <div class="film film2"></div>
+                                   <div class="film film2"></div>
+                                   <div class="film film2"></div>
+                                   <div class="film film2"></div>
+                                   <div class="film film2"></div>
                                </div>
                            </div>
+                
+                           <button class="fleche_droite"><i class="fas fa-angle-right"></i></button>
                        </div>
-                       
-                       <button role="button" class="fleche_droite"><i class="fas fa-angle-right"></i></button>
+        
                    </div>
-                   
-               </div>
-               
-               <div class="caroussel_meilleurs_films conteneur">
-                   <h3 id="titre_categorie_3">Comédies</h3>
-                   
-                   <div class="contenu_principal">
-                       
-                       <button role="button" class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
-                       
-                       <div class="contenu_caroussel">
-                           <div id=caroussel3 class="caroussel">
-                               <div class="film film3">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt="image film Le Discours"></a>-->
-                               </div>
-                               <div class="film film3">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film3">
-<!--                                   <a href="#"><img src="images/villa.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film3">
-<!--                                   <a href="#"><img src="images/oubli.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film3">
-<!--                                   <a href="#"><img src="images/chacun_chez_soi.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film3">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film3">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
+               </section>
+    
+    
+               <section>
+                   <div class="caroussel_meilleurs_films conteneur">
+                       <h3 id="titre_categorie_3">Comédies</h3>
+            
+                       <div class="contenu_principal">
+                
+                           <button class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
+                
+                           <div class="contenu_caroussel">
+                               <div id=caroussel3 class="caroussel">
+                                   <div class="film film3"></div>
+                                   <div class="film film3"></div>
+                                   <div class="film film3"></div>
+                                   <div class="film film3"></div>
+                                   <div class="film film3"></div>
+                                   <div class="film film3"></div>
+                                   <div class="film film3"></div>
                                </div>
                            </div>
+                
+                           <button class="fleche_droite"><i class="fas fa-angle-right"></i></button>
                        </div>
-                       
-                       <button role="button" class="fleche_droite"><i class="fas fa-angle-right"></i></button>
                    </div>
-                   
-               </div>
-               
-               <div class="caroussel_meilleurs_films conteneur">
-                   <h3 id="titre_categorie_4">Films d'animation</h3>
-                   
-                   <div class="contenu_principal">
-                       
-                       <button role="button" class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
-                       
-                       <div class="contenu_caroussel">
-                           <div id=caroussel4 class="caroussel">
-                               <div class="film film4">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt="image film Le Discours"></a>-->
-                               </div>
-                               <div class="film film4">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film4">
-<!--                                   <a href="#"><img src="images/villa.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film4">
-<!--                                   <a href="#"><img src="images/oubli.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film4">
-<!--                                   <a href="#"><img src="images/chacun_chez_soi.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film4">
-<!--                                   <a href="#"><img src="images/discours.jpg" alt=""></a>-->
-                               </div>
-                               <div class="film film4">
-<!--                                   <a href="#"><img src="images/croods.jpg" alt=""></a>-->
+               </section>
+    
+    
+               <section>
+                   <div class="caroussel_meilleurs_films conteneur">
+                       <h3 id="titre_categorie_4">Films d'animation</h3>
+            
+                       <div class="contenu_principal">
+                
+                           <button class="fleche_gauche"><i class="fas fa-angle-left"></i></button>
+                
+                           <div class="contenu_caroussel">
+                               <div id=caroussel4 class="caroussel">
+                                   <div class="film film4">
+                                   </div>
+                                   <div class="film film4">
+                                   </div>
+                                   <div class="film film4">
+                                   </div>
+                                   <div class="film film4">
+                                   </div>
+                                   <div class="film film4">
+                                   </div>
+                                   <div class="film film4">
+                                   </div>
+                                   <div class="film film4">
+                                   </div>
                                </div>
                            </div>
+                
+                           <button class="fleche_droite"><i class="fas fa-angle-right"></i></button>
                        </div>
-                       
-                       <button role="button" class="fleche_droite"><i class="fas fa-angle-right"></i></button>
+        
                    </div>
-                   
-               </div>
+               </section>
                
            </div>
-           
         </main>
     
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        
         <script src="js/caroussel.js"></script>
         <script src="js/getdata.js"></script>
         <script src="js/menu_deroulant.js"></script>

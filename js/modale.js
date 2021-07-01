@@ -1,19 +1,3 @@
-//
-// function displayModal(i) {
-//     return function() {
-//         modal.style.display = "flex";
-//     }
-// }
-//
-// // open the modal when the user clicks on image
-// for (let i = 0; i < openButton.length; i++) {
-//     openButton[i].addEventListener('click', function (event) {
-//         event.preventDefault();
-//     });
-//     openButton[i].addEventListener('click', displayModal(i));
-// }
-
-
 /**
  * Creates a template of the modal content 
  * @param response
@@ -38,7 +22,7 @@ function templateModal(response) {
 
 
 /**
- * displays modal content using 'templateModal function'
+ * displays modal content using 'template Modal function'
  * @param url
  */
 function displayModalInfo (url) {
@@ -60,33 +44,27 @@ function displayModalInfo (url) {
 
 
 document.onclick = function(event) {
-
     const target = event.target;
 
     if (target.tagName.toLowerCase() === 'img') {
-        console.log("hello world");
         modal.style.display = "flex";
         event.preventDefault();
-        console.log ('event :', event);
 
         const movieId = target.id;
-        console.log("movieId: ", movieId);
-
         displayModalInfo(urlBase + movieId)
     }
 }
 
-
 // -------------------------------  close the modal when the user clicks on the cross --------------------------------
+
 closeButton.onclick = function () {
     modal.style.display = "none";
-
 }
 
 // -----------------------------  close the modal when the user clicks outside the modal  ---------------------------
+
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none"
     }
 }
-
