@@ -11,7 +11,7 @@ function templateModal(response) {
                 <p><span>score imdb</span> : ${response["imdb_score"]} </p>
                 <p><span>réalisateur(s)</span> : ${response["directors"].join(", ")}</p>
                 <p><span>acteurs</span> : ${response["actors"].join(", ")}</p>
-                <p><span>durée</span> : ${response["duration"]}</p>
+                <p><span>durée</span> : ${response["duration"]} min</p>
                 <p><span>Origine</span> : ${response["countries"].join(", ")}</p>
                 <p><span>Box Office</span> : ${response["worldwide_gross_income"]}</p>
                 <p><span>Résumé</span> : ${response["long_description"]}</p>`;

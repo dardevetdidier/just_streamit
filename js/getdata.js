@@ -100,12 +100,12 @@ function getImagesAndIdFilms (url, caroussel) {
     fetch(url)
         .then(function (response) {
             if (response.ok) {
-                return response.json();
+                return  response.json();
             }
         })
-        .then(async function (response) {
+        .then(function (response) {
             console.log(response);
-            await display_images_caroussel(response, caroussel)
+            display_images_caroussel(response, caroussel)
         })
         .catch(function (error) {
             console.log(error);

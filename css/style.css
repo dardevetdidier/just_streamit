@@ -52,7 +52,6 @@ header div a {
     text-decoration: none;
 }
 header div #menu_deroulant_categories {
-
     position: absolute;
     top: 2em;
     left: -0.8em;
@@ -244,11 +243,6 @@ header form i {
 
 /* ----- ----- ----- ----- ----- ----- TITRE  ----- ----- ----- ----- ----- -----*/
 
-#titre_categorie_1 span{
-    color: var(--rouge);
-    font-family: 'Bebas Neue', cursive;
-    font-weight: normal;
-}
 .caroussel_meilleurs_films h3 {
     color: #fff;
     font-size: 30px;
