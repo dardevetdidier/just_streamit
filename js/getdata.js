@@ -90,35 +90,40 @@ function displayBestfilmInfo (url, element) {
         });
 }
 
-// ---------- --------- ----------  MAKES API REQUEST AND DISPLAYS IMAGES IN CAROUSSELS ----- ------- ----- ----- ----
+// ---------- --------- ----------  MAKES API REQUEST TO GET DATA OF EACH CATEGORY ----- ------- ----- ----- ----
+
 /**
- * Get a list of film id and a list of images urls from api
+ * makes API request to get data according the category
  * @param url
- * @param caroussel
+ * @returns {Promise<Response>}
  */
-function getImagesAndIdFilms (url, caroussel) {
-    fetch(url)
+function getDataCategory (url) {
+    return fetch(url)
         .then(function (response) {
             if (response.ok) {
-                return  response.json();
+                return response.json();
             }
-        })
-        .then(function (response) {
-            console.log(response);
-            display_images_caroussel(response, caroussel)
         })
         .catch(function (error) {
             console.log(error);
         })
 }
+
 // -------  --------  -----------  --------  MAIN -------- ---------  -----------  ---------
 
 
-// display image and informations in "Best Film" window
+// display image and informations into "Best Film" section
 displayBestfilmInfo(urlBase + "9008642", infoBestFilm);
 
 // displays images in caroussels
-getImagesAndIdFilms(urlImdbScore, filmsCaroussel1);
-getImagesAndIdFilms(urlMusic, filmsCaroussel2);
-getImagesAndIdFilms(urlComedy, filmsCaroussel3);
-getImagesAndIdFilms(urlAnimation, filmsCaroussel4);
+Promise.all([
+    getDataCategory(urlImdbScore),
+    getDataCategory(urlMusic),
+    getDataCategory(urlComedy),
+    getDataCategory(urlAnimation)])
+    .then(function(responses){
+        display_images_caroussel(responses[0], filmsCaroussel1);
+        display_images_caroussel(responses[1], filmsCaroussel2);
+        display_images_caroussel(responses[2], filmsCaroussel3);
+        display_images_caroussel(responses[3], filmsCaroussel4);
+    })

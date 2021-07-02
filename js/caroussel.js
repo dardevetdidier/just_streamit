@@ -37,7 +37,6 @@ function scrollCaroussel(flecheG, flecheD, caroussel) {
 });
 }
 
-
 // scrolls all caroussels
 scrollCaroussel(flechesDroites[0], flechesGauches[0], caroussels[0]);
 scrollCaroussel(flechesDroites[1], flechesGauches[1], caroussels[1]);
